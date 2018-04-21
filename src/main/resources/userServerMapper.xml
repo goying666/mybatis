@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="GBK" ?> <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> <!--相当于UserMapper接口的实现 namespace必须是UserMapper类路径-->
+<mapper namespace="com.zujuba.mapper.userServerMapper">
+    <!--//增加用户登录信息-->
+    <!--Integer addUserLogin(userLogin loginInfo);-->
+    <!--<insert id="addUserLogin" parameterType="com.zujuba.domain.userLogin" useGeneratedKeys="true" keyProperty="id">-->
+        <!--insert into userlogin (name,image) values( #{name},#{image} )-->
+    <!--</insert>-->
+
+    <insert id="addUserLogin" parameterType="com.zujuba.domain.userLogin" useGeneratedKeys="true" keyProperty="id">
+        insert into userlogin (
+                userid,
+                logintime,
+                name,
+                image,
+                gender,
+                phonenumber,
+                city,
+                province,
+                onlyid
+        )
+        values(
+                #{userid},
+                #{logintime},
+                #{name},
+                #{image},
+                #{gender},
+                #{phonenumber},
+                #{city},
+                #{province},
+                #{onlyid}
+        )
+    </insert>
+    <!--//新增用户信息-->
+    <!--Integer adduserbaseic(userbasic user);-->
+    <insert id="adduserbaseic" parameterType="com.zujuba.domain.userbasic" useGeneratedKeys="true" keyProperty="id">
+        insert into userbasic (name,age) values(#{name},#{age})
+    </insert>
+    <!--//查询用户信息是否存在-->
+    <!--Integer userIsOld(String name);-->
+
+</mapper>
